@@ -71,8 +71,6 @@ class HeroSection extends StatelessWidget {
                         children: [
                           _socialIcon(Icons.phone, AppConstants.phone),
                           const SizedBox(width: 16),
-                          _socialIcon(Icons.email, AppConstants.email),
-                          const SizedBox(width: 16),
                           _socialIcon(
                             Icons.link,
                             AppConstants.linkedIn,
@@ -94,8 +92,6 @@ class HeroSection extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               _socialIcon(Icons.phone, AppConstants.phone),
-                              const SizedBox(height: 12),
-                              _socialIcon(Icons.email, AppConstants.email),
                             ],
                           ),
 
@@ -133,7 +129,7 @@ class HeroSection extends StatelessWidget {
         onTap: url != null ? () => launchUrl(Uri.parse(url)) : null,
         child: Row(
           children: [
-            Icon(icon, color: AppColors.primary, size: 20),
+            Icon(icon, color: AppColors.whiteText, size: 20),
             const SizedBox(width: 6),
             Text(text, style: const TextStyle(color: AppColors.whiteText)),
           ],

@@ -3,7 +3,7 @@ class AppConstants {
     {
       "title": "Salla Spare – Customer App POV",
       "subtitle": "Multi-Vendor Automotive Spare Parts Marketplace",
-      "videoPath": "assets/videos/Salla_spare_app.mp4",
+      "videoPath": "assets/videos/Salla-Spare.mp4",
       "description": """
 Customer-facing mobile application (1 of 3 synchronized apps: Customer • Vendor • Driver) of Salla Spare — the region’s fastest-growing multi-vendor platform for genuine and aftermarket car spare parts.
 Built entirely by me as the Flutter developer, this app delivers a fully personalized, hassle-free shopping experience tailored to each user’s exact vehicle.
@@ -27,7 +27,7 @@ Core Features:
     {
       "title": "E-Commerce Template App",
       "subtitle": "Production-Ready Flutter Template · 2024–2025",
-      "videoPath": "assets/videos/e-commerce_template_app.mp4",
+      "videoPath": "assets/videos/e-commerce.mp4",
       "description": """
 A complete, white-label e-commerce solution built from the ground up as a highly customizable template. Businesses and agencies can launch fully branded stores for their clients in days instead of months — with minimal code changes required.
 As the Flutter developer, I was responsible for a lot of project aspects: architecture, front-end, state management, and Firebase backend design.
@@ -50,7 +50,7 @@ Key Highlights & Features:
     {
       "title": "Note Taker – Vehicle Testing Tool for tablets",
       "subtitle": "Internal Project • Corelia",
-      "videoPath": "assets/videos/NoteTaker.mp4",
+      "videoPath": "assets/videos/Notetaker.mp4",
       "description": """
 A specialized mobile tool designed to streamline automotive testing workflows and manage vehicle test cases.
 Built as an internal project for Corelia where I implemented the full mobile logic and integrated backend endpoints for real-time synchronization.

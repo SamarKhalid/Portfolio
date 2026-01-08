@@ -1,4 +1,4 @@
-import 'package:device_frame/device_frame.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
@@ -169,59 +169,99 @@ class _ProjectCardState extends State<ProjectCard> {
   }
 
   Widget _buildDeviceFrame() {
-    return SizedBox(
-      height: 650,
-      child: DeviceFrame(
-        device: Devices.ios.iPhone13ProMax,
-        isFrameVisible: true,
-        orientation: Orientation.portrait,
-        screen: Container(
-          color: Colors.black,
-          child: _initialized
-              ? GestureDetector(
-                  behavior: HitTestBehavior.opaque,
-                  onTap: () {
-                    setState(() {
-                      if (_controller.value.isPlaying) {
-                        _controller.pause();
-                      } else {
-                        _controller.play();
-                      }
-                    });
-                  },
-                  child: Stack(
-                    alignment: Alignment.center,
-                    children: [
-                      VideoPlayer(_controller),
-
-                      Container(color: Colors.transparent),
-                      if (!_controller.value.isPlaying)
-                        Container(
-                          decoration: BoxDecoration(
-                            color: Colors.black.withOpacity(0.4),
-                            shape: BoxShape.circle,
-                          ),
-                          padding: const EdgeInsets.all(12),
-                          child: const Icon(
-                            Icons.play_arrow_rounded,
-                            color: Colors.white,
-                            size: 48,
-                          ),
-                        ),
-                    ],
-                  ),
-                )
-              : Container(
-                  color: Colors.black12,
-                  child: const Center(
-                    child: CircularProgressIndicator(
-                      color: Colors.white24,
-                      strokeWidth: 2,
-                    ),
-                  ),
-                ),
-        ),
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.black,
+        borderRadius: BorderRadius.circular(20),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.2),
+            blurRadius: 10,
+            offset: const Offset(0, 5),
+          ),
+        ],
+      ),
+      clipBehavior: Clip.hardEdge,
+      child: AspectRatio(
+        aspectRatio: _controller.value.aspectRatio > 0
+            ? _controller.value.aspectRatio
+            : 9 / 16, // Fallback to portrait
+        child: _buildVideoContent(),
       ),
     );
+  }
+
+  Widget _buildVideoContent() {
+    return _initialized
+        ? GestureDetector(
+            behavior: HitTestBehavior.opaque,
+            onTap: () {
+              setState(() {
+                if (_controller.value.isPlaying) {
+                  _controller.pause();
+                } else {
+                  _controller.play();
+                }
+              });
+            },
+            child: Stack(
+              alignment: Alignment.center,
+              fit: StackFit.expand,
+              children: [
+                FittedBox(
+                  fit: BoxFit.cover,
+                  clipBehavior: Clip.hardEdge,
+                  child: SizedBox(
+                    width: _controller.value.size.width,
+                    height: _controller.value.size.height,
+                    child: VideoPlayer(_controller),
+                  ),
+                ),
+                Container(color: Colors.transparent),
+                if (!_controller.value.isPlaying)
+                  Center(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.black.withOpacity(0.4),
+                        shape: BoxShape.circle,
+                      ),
+                      padding: const EdgeInsets.all(12),
+                      child: const Icon(
+                        Icons.play_arrow_rounded,
+                        color: Colors.white,
+                        size: 48,
+                      ),
+                    ),
+                  ),
+              ],
+            ),
+          )
+        : Container(
+            color: Colors.black,
+            child: Center(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const SizedBox(
+                    width: 30,
+                    height: 30,
+                    child: CircularProgressIndicator(
+                      color: Colors.white54,
+                      strokeWidth: 2.5,
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  Text(
+                    "Loading Demo...",
+                    style: TextStyle(
+                      color: Colors.white.withOpacity(0.5),
+                      fontSize: 12,
+                      letterSpacing: 0.5,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          );
   }
 }
