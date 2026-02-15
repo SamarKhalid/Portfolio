@@ -1,7 +1,5 @@
 # Hi there, I'm Samar! 👋
 
-**Flutter Developer**
-
 Welcome to my portfolio! I built this interactive web experience to make it easier for potential clients and employers to explore my work and learn a bit more about me.
 
 ## Why this Portfolio?
