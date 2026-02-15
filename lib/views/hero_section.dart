@@ -1,3 +1,4 @@
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:samar_portfolio/constants/app_constants.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -31,7 +32,7 @@ class HeroSection extends StatelessWidget {
                 ),
                 const SizedBox(height: 12),
                 Text(
-                  "Flutter Devloper || Masters Student",
+                  "Flutter Developer || Masters Student",
                   style: AppTextStyles.body,
                 ),
 
@@ -44,7 +45,12 @@ class HeroSection extends StatelessWidget {
                       : WrapAlignment.center,
                   children: [
                     ElevatedButton.icon(
-                      onPressed: onViewProjects,
+                      onPressed: () {
+                        FirebaseAnalytics.instance.logEvent(
+                          name: 'view_projects_click',
+                        );
+                        onViewProjects();
+                      },
                       icon: const Icon(Icons.work_outline),
                       label: const Text("View Projects"),
                     ),

@@ -1,3 +1,4 @@
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -204,7 +205,17 @@ class _ProjectCardState extends State<ProjectCard> {
     required String url,
   }) {
     return InkWell(
-      onTap: () => launchUrl(Uri.parse(url)),
+      onTap: () {
+        FirebaseAnalytics.instance.logEvent(
+          name: 'store_button_click',
+          parameters: {
+            'store_type': label,
+            'project_name': widget.title,
+            'url': url,
+          },
+        );
+        launchUrl(Uri.parse(url));
+      },
       borderRadius: BorderRadius.circular(15),
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),

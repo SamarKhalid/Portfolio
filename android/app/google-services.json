@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "180087486644",
+    "project_id": "samar-portfolio-14cf1",
+    "storage_bucket": "samar-portfolio-14cf1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:180087486644:android:ea81b8103c408a8feeffe1",
+        "android_client_info": {
+          "package_name": "com.example.samar_portfolio"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJ8OzDXn1AW54RxiIxMQ0J0Sr9b_nA93M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

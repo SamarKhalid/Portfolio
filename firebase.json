@@ -1,16 +1,1 @@
-{
-  "hosting": {
-    "public": "build/web",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
-    ]
-  }
-}
+{"hosting":{"public":"build/web","ignore":["firebase.json","**/.*","**/node_modules/**"],"rewrites":[{"source":"**","destination":"/index.html"}]},"flutter":{"platforms":{"android":{"default":{"projectId":"samar-portfolio-14cf1","appId":"1:180087486644:android:ea81b8103c408a8feeffe1","fileOutput":"android/app/google-services.json"}},"dart":{"lib/firebase_options.dart":{"projectId":"samar-portfolio-14cf1","configurations":{"android":"1:180087486644:android:ea81b8103c408a8feeffe1","ios":"1:180087486644:ios:980ead01c1c951aaeeffe1","macos":"1:180087486644:ios:980ead01c1c951aaeeffe1","web":"1:180087486644:web:e64f66994efed606eeffe1","windows":"1:180087486644:web:8dedf09b3ac4bde6eeffe1"}}}}}}
