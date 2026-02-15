@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:video_player/video_player.dart';
 
 class ProjectCard extends StatefulWidget {
@@ -7,6 +8,8 @@ class ProjectCard extends StatefulWidget {
   final String subtitle;
   final String description;
   final String videoPath;
+  final String? appStoreLink;
+  final String? playStoreLink;
 
   const ProjectCard({
     super.key,
@@ -14,6 +17,8 @@ class ProjectCard extends StatefulWidget {
     required this.subtitle,
     required this.description,
     required this.videoPath,
+    this.appStoreLink,
+    this.playStoreLink,
   });
 
   @override
@@ -147,7 +152,9 @@ class _ProjectCardState extends State<ProjectCard> {
             color: Colors.white,
           ),
         ),
+
         const SizedBox(height: 8),
+
         Text(
           widget.subtitle,
           style: const TextStyle(
@@ -156,6 +163,29 @@ class _ProjectCardState extends State<ProjectCard> {
             fontSize: 16,
           ),
         ),
+        if (widget.appStoreLink != null || widget.playStoreLink != null) ...[
+          const SizedBox(height: 12),
+          Wrap(
+            spacing: 8,
+            runSpacing: 8,
+            children: [
+              if (widget.appStoreLink != null &&
+                  widget.appStoreLink!.isNotEmpty)
+                _buildStoreButton(
+                  icon: Icons.phone_iphone,
+                  label: "App Store",
+                  url: widget.appStoreLink!,
+                ),
+              if (widget.playStoreLink != null &&
+                  widget.playStoreLink!.isNotEmpty)
+                _buildStoreButton(
+                  icon: Icons.android,
+                  label: "Play Store",
+                  url: widget.playStoreLink!,
+                ),
+            ],
+          ),
+        ],
         const SizedBox(height: 20),
         Text(
           widget.description.trim(),
@@ -165,6 +195,40 @@ class _ProjectCardState extends State<ProjectCard> {
           ),
         ),
       ],
+    );
+  }
+
+  Widget _buildStoreButton({
+    required IconData icon,
+    required String label,
+    required String url,
+  }) {
+    return InkWell(
+      onTap: () => launchUrl(Uri.parse(url)),
+      borderRadius: BorderRadius.circular(15),
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
+          border: Border.all(color: Colors.white.withOpacity(0.3)),
+          color: Colors.white.withOpacity(0.1),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(icon, color: Colors.white, size: 18),
+            const SizedBox(width: 8),
+            Text(
+              label,
+              style: const TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.w600,
+                fontSize: 10,
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 

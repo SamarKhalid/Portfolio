@@ -50,6 +50,8 @@ class ProjectsSection extends StatelessWidget {
               subtitle: p["subtitle"],
               videoPath: p["videoPath"],
               description: p["description"],
+              appStoreLink: p["appStoreLink"],
+              playStoreLink: p["playStoreLink"],
             );
           }).toList(),
           if (AppConstants.moreProjects.isNotEmpty) ...[

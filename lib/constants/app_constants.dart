@@ -26,7 +26,7 @@ Core Features:
     },
     {
       "title": "E-Commerce Template App",
-      "subtitle": "Production-Ready Flutter Template · 2024–2025",
+      "subtitle": "Production-Ready Flutter Template",
       "videoPath": "assets/videos/e-commerce.mp4",
       "description": """
 A complete, white-label e-commerce solution built from the ground up as a highly customizable template. Businesses and agencies can launch fully branded stores for their clients in days instead of months — with minimal code changes required.
@@ -46,6 +46,9 @@ Key Highlights & Features:
 • Built-in loyalty system: progress points, tiers, and voucher redemption.
 • Responsive design across phones, tablets.
 """,
+      "appStoreLink": "https://apps.apple.com/us/app/arqana/id6757395604",
+      "playStoreLink":
+          "https://play.google.com/store/apps/details?id=com.qahwa.store&hl=en",
     },
     {
       "title": "Note Taker – Vehicle Testing Tool for tablets",
