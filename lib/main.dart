@@ -1,23 +1,16 @@
-import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:samar_portfolio/constants/app_colors.dart';
-import 'package:samar_portfolio/firebase_options.dart';
 import 'package:samar_portfolio/views/experience_section.dart';
 import 'package:samar_portfolio/views/hero_section.dart';
 import 'package:samar_portfolio/views/project_section.dart';
 import 'package:samar_portfolio/views/publications_section.dart';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+void main() {
   runApp(MyPortfolioApp());
 }
 
 class MyPortfolioApp extends StatelessWidget {
   final _scrollController = ScrollController();
-  static FirebaseAnalytics analytics = FirebaseAnalytics.instance;
-
   MyPortfolioApp({super.key});
 
   final _projectsKey = GlobalKey();
@@ -27,7 +20,6 @@ class MyPortfolioApp extends StatelessWidget {
     return MaterialApp(
       title: 'Samar Portfolio',
       debugShowCheckedModeBanner: false,
-      navigatorObservers: [FirebaseAnalyticsObserver(analytics: analytics)],
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.transparent,
         useMaterial3: true,
